@@ -11,23 +11,23 @@
   <body>
       <h2>Contact Form</h2>
       <h3>Fill in this form to contact the site owners.</h3>
-      <form action ="/process" method = "post">
+      <form action ="/contact" method = "post">
           <div>
-              {{form.Name.label}}
-              {{form.Name}}
+              {{forms.Name.label}}
+              {{forms.Name}}
           </div>
           <div>
-              {{form.email.label}}
-              {{form.email}}
+              {{forms.email.label}}
+              {{forms.email}}
           </div>
           <div>
-              {{form.Subject.label}}
-              {{form.Subject}}
+              {{forms.Subject.label}}
+              {{forms.Subject}}
           </div>
           
           <div>
-              {{form.Message.label}}
-              {{form.Message}}
+              {{forms.Message.label}}
+              {{forms.Message}}
           </div>
           <button>Send</button>
 

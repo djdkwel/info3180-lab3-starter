@@ -34,18 +34,18 @@ def about():
 ###
 @app.route('/contact', methods=['GET','POST'])
 def contact():
-    form = ContactForm()
+    forms = ContactForm()
     if request.method == 'POST':
-        Name = request.forms['Name']
-        email = request.forms['email']
-        Subject = request.forms['Subject']
-        message = message.forms['message']
+        Name = request.form['Name']
+        email = request.form['email']
+        Subject = request.form['Subject']
+        message = request.form['Message']
         msg = Message("Your Subject", sender =('Diandra Whittick','from@example.com'), recipients=['diandra.whittick@gmail.com'])
         msg.body = 'Sucessful'
         mail.send(msg)
         flash('Message was Sent')
         return redirect(url_for('home'))
-    return render_template('contact.html',form=form)
+    return render_template('contact.html',forms=forms)
 
 @app.route('/<file_name>.txt')
 def send_text_file(file_name):
