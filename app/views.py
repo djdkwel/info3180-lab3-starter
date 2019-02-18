@@ -6,7 +6,11 @@ This file creates your application.
 """
 
 from app import app
-from flask import render_template, request, redirect, url_for, flash
+from flask import render_template, request, redirect, url_for, flash 
+from app import mail
+from flask_mail import Message 
+from app.forms import ContactForm
+
 
 
 ###
@@ -28,6 +32,20 @@ def about():
 ###
 # The functions below should be applicable to all Flask apps.
 ###
+@app.route('/contact', methods=['GET','POST'])
+def contact():
+    form = ContactForm()
+    if request.method == 'POST':
+        Name = request.forms['Name']
+        email = request.forms['email']
+        Subject = request.forms['Subject']
+        message = message.forms['message']
+        msg = Message("Your Subject", sender =('Diandra Whittick','from@example.com'), recipients=['diandra.whittick@gmail.com'])
+        msg.body = 'Sucessful'
+        mail.send(msg)
+        flash('Message was Sent')
+        return redirect(url_for('home'))
+    return render_template('contact.html',form=form)
 
 @app.route('/<file_name>.txt')
 def send_text_file(file_name):

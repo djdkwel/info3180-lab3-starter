@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+      <h2>Contact Form</h2>
+      <h3>Fill in this form to contact the site owners.</h3>
+      <form action ="/process" method = "post">
+          <div>
+              {{form.Name.label}}
+              {{form.Name}}
+          </div>
+          <div>
+              {{form.email.label}}
+              {{form.email}}
+          </div>
+          <div>
+              {{form.Subject.label}}
+              {{form.Subject}}
+          </div>
+          
+          <div>
+              {{form.Message.label}}
+              {{form.Message}}
+          </div>
+          <button>Send</button>
+
+      </form>
+  </body>
+</html>
+{% endblock %}
+
